@@ -1,20 +1,3 @@
-/* ══════════════════════════════════════════════════════
-   THAT'S NOT A HAT — Complete Stylesheet
-   Sections:
-     1. Reset & Base
-     2. Typography
-     3. Screen wrapper
-     4. Card component
-     5. Inputs & Selects
-     6. Buttons
-     7. Lobby components
-     8. Game board & Player tiles
-     9. Card Hands & Flip States (Face-Up / Face-Down)
-    10. Action area & Phases
-    11. My area (bottom bar)
-   ══════════════════════════════════════════════════════ */
-
-/* ── 1. Reset & Base ─────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -45,7 +28,6 @@ body {
   padding: 1.5rem 1rem;
 }
 
-/* ── 2. Typography ───────────────────────────────────── */
 h1 {
   font-size: 2.2rem;
   font-weight: 700;
@@ -80,7 +62,6 @@ p {
   font-style: italic;
 }
 
-/* ── 3. Screen wrapper ───────────────────────────────── */
 .screen {
   width: 100%;
   max-width: 520px;
@@ -90,7 +71,6 @@ p {
   align-items: center;
 }
 
-/* ── 4. Card component (Lobby/Box) ───────────────────── */
 .card {
   background: #16213e;
   border: 1px solid #0f3460;
@@ -103,7 +83,6 @@ p {
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-/* ── 5. Inputs & Selects ─────────────────────────────── */
 label {
   font-size: 0.85rem;
   color: #aaa;
@@ -132,7 +111,6 @@ select option {
   color: #eee;
 }
 
-/* ── 6. Buttons ──────────────────────────────────────── */
 button {
   background: #e94560;
   border: none;
@@ -186,7 +164,6 @@ button.ghost:hover:not([disabled]) {
   flex: 1;
 }
 
-/* ── 7. Lobby components ─────────────────────────────── */
 .room-code {
   font-size: 2.5rem;
   font-weight: 800;
@@ -249,7 +226,6 @@ button.ghost:hover:not([disabled]) {
   text-align: center;
 }
 
-/* ── 8. Game Board & Player Tiles ────────────────────── */
 .game-screen {
   max-width: 620px;
   gap: 1rem;
@@ -306,7 +282,6 @@ button.ghost:hover:not([disabled]) {
 .target-badge { background: #f0a500; color: #000; }
 .elim-badge   { background: #444; }
 
-/* ── 9. Card Hands & Flip States (Face-Up / Face-Down) ─ */
 .card-hand-container {
   display: flex;
   gap: 10px;
@@ -334,7 +309,6 @@ button.ghost:hover:not([disabled]) {
   box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
-/* FACE-UP: White background, clear emoji, card name */
 .card-tile.face-up {
   background: #ffffff;
   color: #1a1a2e;
@@ -378,7 +352,6 @@ button.ghost:hover:not([disabled]) {
   text-transform: uppercase;
 }
 
-/* FACE-DOWN: Sleek dark pattern with top hat icon */
 .card-tile.face-down {
   background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
   border: 2px solid #1a5276;
@@ -412,7 +385,6 @@ button.ghost:hover:not([disabled]) {
 .penalties    { display: inline-flex; gap: 3px; font-size: 0.85rem; }
 .dot.empty    { opacity: 0.25; }
 
-/* ── 10. Action Area & Phases ────────────────────────── */
 .action-area {
   width: 100%;
   background: #16213e;
@@ -446,7 +418,6 @@ button.ghost:hover:not([disabled]) {
 
 .waiting-box { color: #aaa; }
 
-/* Big emoji card for reveal */
 .big-card {
   font-size: 4rem;
   background: #0f3460;
@@ -458,7 +429,6 @@ button.ghost:hover:not([disabled]) {
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
-/* Reveal box (naming phase) */
 .reveal-box {
   display: flex;
   flex-direction: column;
@@ -468,7 +438,6 @@ button.ghost:hover:not([disabled]) {
   width: 100%;
 }
 
-/* Card naming input row */
 .name-input-row {
   display: flex;
   gap: 0.5rem;
@@ -477,7 +446,6 @@ button.ghost:hover:not([disabled]) {
 .name-input-row input  { flex: 1; }
 .name-input-row button { white-space: nowrap; padding: 0.65rem 1.1rem; }
 
-/* Response box */
 .response-box { width: 100%; }
 
 .claim-banner {
@@ -498,12 +466,10 @@ button.ghost:hover:not([disabled]) {
 .challenge-btn         { background: #e94560; }
 .challenge-btn:hover   { background: #c73652; }
 
-/* Challenge reveal result */
 .reveal-name  { font-size: 1.2rem; }
 .result-lie   { color: #e94560; font-weight: 700; font-size: 1.15rem; }
 .result-truth { color: #1a8f5a; font-weight: 700; font-size: 1.15rem; }
 
-/* Scoreboard */
 .scoreboard {
   width: 100%;
   display: flex;
@@ -523,7 +489,6 @@ button.ghost:hover:not([disabled]) {
 
 .claim-text { color: #e94560; font-weight: bold; }
 
-/* ── 11. My area (bottom bar) ────────────────────────── */
 .my-area {
   display: flex;
   flex-direction: column;
@@ -562,4 +527,186 @@ button.ghost:hover:not([disabled]) {
   color: #e94560;
   font-size: 0.85rem;
   font-weight: bold;
+}
+
+.chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat-toggle-btn {
+  background: #0f3460;
+  border: 2px solid #1a5276;
+  border-radius: 99px;
+  color: #fff;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.chat-toggle-btn:hover {
+  background: #1a5276;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.chat-unread-badge {
+  background: #e94560;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 99px;
+  font-weight: 800;
+}
+
+.chat-window {
+  width: 320px;
+  height: 420px;
+  max-height: calc(100vh - 100px);
+  background: #16213e;
+  border: 1px solid #0f3460;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  overflow: hidden;
+  animation: chatFadeIn 0.2s ease-out;
+}
+
+@keyframes chatFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.chat-header {
+  background: #0f3460;
+  padding: 0.65rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chat-close-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.chat-close-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.chat-empty {
+  color: #777;
+  font-style: italic;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.chat-bubble {
+  max-width: 82%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  display: flex;
+  flex-direction: column;
+  word-break: break-word;
+}
+
+.chat-bubble.chat-me {
+  align-self: flex-end;
+  background: #0f3460;
+  border: 1px solid #1a5276;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-bubble.chat-other {
+  align-self: flex-start;
+  background: #1f2b4d;
+  border: 1px solid #283763;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  margin-bottom: 2px;
+}
+
+.chat-sender {
+  font-weight: 700;
+  color: #e94560;
+}
+
+.chat-bubble.chat-me .chat-sender {
+  color: #1a8f5a;
+}
+
+.chat-time {
+  color: #888;
+}
+
+.chat-text {
+  color: #eee;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  background: #0f3460;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chat-input-row input {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.9rem;
+  background: #16213e;
+  border: 1px solid #1a5276;
+}
+
+.chat-input-row button {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.9rem;
 }

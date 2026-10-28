@@ -174,12 +174,29 @@ io.on('connection', (socket) => {
   });
 
   socket.on('get_game_state', () => {
-  const code = socket.data.roomCode;
-  const engine = rooms[code]?.engine;
-  if (engine) {
-    socket.emit('game_state', engine.getPublicState());
-    socket.emit('private_state', engine.getPrivateState(socket.id));
-  }
+    const code = socket.data.roomCode;
+    const engine = rooms[code]?.engine;
+    if (engine) {
+      socket.emit('game_state', engine.getPublicState());
+      socket.emit('private_state', engine.getPrivateState(socket.id));
+    }
+  });
+
+  socket.on('send_message', ({ text }) => {
+    const code = socket.data.roomCode;
+    const name = socket.data.playerName || 'Anonymous';
+
+    if (!code || !text?.trim()) return;
+
+    const message = {
+      id: Date.now() + Math.random(),
+      sender: name,
+      senderId: socket.id,
+      text: text.trim(),
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    };
+
+    io.to(code).emit('new_message', message);
   });
 });
 

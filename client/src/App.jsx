@@ -4,6 +4,7 @@ import JoinScreen from './components/JoinScreen';
 import Lobby from './components/Lobby';
 import GameBoard from './components/GameBoard';
 import './App.css';
+import Chat from './components/Chat';
 
 export default function App() {
   const [screen, setScreen] = useState('join');
@@ -36,13 +37,14 @@ export default function App() {
     setRoom(null);
   }
 
-  return (
+    return (
     <div className="app">
       {screen === 'join' && <JoinScreen />}
       {screen === 'lobby' && <Lobby room={room} onGameStart={handleGameStart} />}
       {screen === 'game' && (
         <GameBoard initialRoom={room} onGameEnd={handleGameEnd} />
       )}
+      {room && <Chat />}
     </div>
   );
 }
